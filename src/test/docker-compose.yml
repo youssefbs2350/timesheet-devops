@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  tpfoyer-app:
+    image: youssef2350/alpine:1.0.0
+    restart: on-failure
+    ports:
+      - "8089:8089"
+    stdin_open: true
+    tty: true
