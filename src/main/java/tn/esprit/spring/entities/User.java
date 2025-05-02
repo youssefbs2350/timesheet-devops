@@ -44,7 +44,7 @@ public class User implements Serializable {
 		this.dateNaissance = dateNaissance;
 		this.role = role;
 	}
-%%modification faite
+//modification faite
 
 			//commentaire ajouter
 			//testmodif
