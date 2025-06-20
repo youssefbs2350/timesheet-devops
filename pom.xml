@@ -21,33 +21,12 @@
     <properties>
         <java.version>1.8</java.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <!-- Set Jacoco output file for XML -->
+        <jacoco.outputDirectory>${project.build.directory}/jacoco-report</jacoco.outputDirectory>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency> 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!-- your existing dependencies -->
     </dependencies>
 
     <distributionManagement>
@@ -82,7 +61,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
+                <version>0.8.8</version> <!-- Use a newer stable version -->
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -96,6 +75,14 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <outputDirectory>${jacoco.outputDirectory}</outputDirectory>
+                            <reports>
+                                <xml enabled="true" />
+                                <csv enabled="false" />
+                                <html enabled="true" />
+                            </reports>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
