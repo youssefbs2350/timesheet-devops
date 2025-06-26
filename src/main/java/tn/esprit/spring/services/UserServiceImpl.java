@@ -21,10 +21,10 @@ public class UserServiceImpl implements IUserService {
 	private static final Logger l = LogManager.getLogger(UserServiceImpl.class);
 
 	@Override
-	public List<User> retrieveAllUsers() { 
-
-		return null;
+	public List<User> retrieveAllUsers() {
+		return userRepository.findAll();
 	}
+
 
 
 	@Override
